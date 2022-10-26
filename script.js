@@ -28,6 +28,12 @@
             document.getElementById("U2U1AdzQf13").remove();
             return;
         }
+
+        // 不翻译代码, 如 Netty
+        for (const node of document.querySelectorAll('pre')) {
+            node.setAttribute('translate', 'no');
+        }
+
         // 开发者文档正文支持双语
         for (const node of document.querySelectorAll('p')) {
             const copy = document.createElement(node.nodeName);
@@ -39,6 +45,7 @@
             node.parentElement.insertBefore(copy, node.nextElementSibling);
             node.setAttribute('translate', 'no');
         }
+
         // 对于链接, 则使用行内元素双语, 适合目录结构
         for (const node of document.querySelectorAll('a')) {
             // 只更新单个超链接
@@ -57,6 +64,7 @@
                 // 属于多元素的行内，则另外处理这种情况.
             }
         }
+
         // 对于标签, 以两种方式区分
         for (const node of document.querySelectorAll('li')) {
             const firstChild = node.childNodes[0];
@@ -101,7 +109,6 @@
                         copy.appe
                         node.append(copy);
                         node.setAttribute('translate', 'no');
-
                     } else if (firstChild.nodeName == 'UL') {
                         // 不处理多层链接
                     }
@@ -114,6 +121,7 @@
                         flag = false;
                     }
                 }
+
                 if (flag) {
                     const copy = document.createElement(node.nodeName);
                     copy.textContent = node.textContent;
@@ -126,15 +134,14 @@
                 }
             }
         }
-        // 不翻译代码, 如 Netty
-        for (const node of document.querySelectorAll('pre')) {
-            node.setAttribute('translate', 'no');
-        }
+
         var flagDiv = document.createElement("DIV");
         flagDiv.id = "U2U1AdzQf13";
         document.body.append(flagDiv);
     }
+
     document.body.append(btn);
+
     function addGlobalStyle(css) {
         var head, style;
         head = document.getElementsByTagName('head')[0];
