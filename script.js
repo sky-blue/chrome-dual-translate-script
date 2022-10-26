@@ -13,14 +13,14 @@
 (function () {
     'use strict';
     const liChild = ['#text', 'SPAN', 'EM', 'FONT', 'STRONG', 'CODE', 'A'];
-    var btn = document.createElement("button");
+    let btn = document.createElement("button");
     btn.id = "dual";
     addGlobalStyle(".dual-css{border:0;width:3.33rem;height:3.33rem;border-radius:50%;box-shadow:0 10px 30px #aaa;background-color:green;display:block;position:fixed;bottom:1.33rem;right:1.33rem}.dual-css:active{background-color:red}")
     btn.className = "dual-css";
     btn.onclick = function () {
         if ( document.getElementById("U2U1AdzQf13") != null ) {
-            while (document.getElementsByClassName("dual-1jk139").length != 0){
-                var arr = document.getElementsByClassName("dual-1jk139")
+            while (document.getElementsByClassName("dual-1jk139").length !== 0){
+                let arr = document.getElementsByClassName("dual-1jk139")
                 for (const child of arr) {
                     child.remove();
                 }
@@ -50,7 +50,6 @@
         for (const node of document.querySelectorAll('a')) {
             // 只更新单个超链接
             if (null === node.previousSibling && null === node.nextElementSibling) {
-                const content = node.textContent;
                 const copy = document.createElement('FONT');
                 copy.textContent = ' ' + node.textContent;
                 copy.setAttribute('translate', 'yes');
@@ -69,7 +68,7 @@
         for (const node of document.querySelectorAll('li')) {
             const firstChild = node.childNodes[0];
             // 对于只有一个元素的列表元素, 则为行内双语
-            if (node.childNodes.length == 1 || node.textContent.length < 75) {
+            if (node.childNodes.length === 1 || node.textContent.length < 75) {
                 // 处理多元素中文字较少的类型.
                 if (node.childNodes.length > 1) {
                     const spiltNode = document.createElement('FONT');
@@ -77,9 +76,9 @@
                     spiltNode.classList.add("dual-1jk139");
                     node.append(spiltNode);
                     node.setAttribute('translate', 'no');
-                    var appendNodes = [];
+                    let appendNodes = [];
                     for (const child of node.childNodes) {
-                        var dupNode;
+                        let dupNode;
                         if (child.nodeType === Node.TEXT_NODE) {
                             dupNode = document.createElement('FONT');
                             dupNode.textContent = child.textContent;
@@ -106,16 +105,15 @@
                         copy.style.fontFamily = "华文细墨"
                         copy.style.fontWeight = "bold"
                         copy.classList.add("dual-1jk139");
-                        copy.appe
                         node.append(copy);
                         node.setAttribute('translate', 'no');
-                    } else if (firstChild.nodeName == 'UL') {
+                    } else if (firstChild.nodeName === 'UL') {
                         // 不处理多层链接
                     }
                 }
             } else {
                 // 对于多个元素, 判断是否为文字类型, 如果是, 添加类似 p 标签的处理
-                var flag = true;
+                let flag = true;
                 for (const childNode of node.childNodes) {
                     if (!liChild.includes(childNode.nodeName)) {
                         flag = false;
@@ -135,7 +133,7 @@
             }
         }
 
-        var flagDiv = document.createElement("DIV");
+        let flagDiv = document.createElement("DIV");
         flagDiv.id = "U2U1AdzQf13";
         document.body.append(flagDiv);
     }
@@ -143,11 +141,10 @@
     document.body.append(btn);
 
     function addGlobalStyle(css) {
-        var head, style;
+        let head, style;
         head = document.getElementsByTagName('head')[0];
         if (!head) { return; }
         style = document.createElement('style');
-        style.type = 'text/css';
         style.innerHTML = css;
         head.appendChild(style);
     }
