@@ -32,7 +32,9 @@
         for (const node of document.querySelectorAll('p')) {
             const copy = document.createElement(node.nodeName);
             copy.textContent = node.textContent;
-            copy.style.opacity = 0.74;
+            // copy.style.opacity = 0.74;
+            copy.style.fontFamily = "华文细墨"
+            copy.style.fontWeight = "bold"
             copy.classList.add("dual-1jk139");
             node.parentElement.insertBefore(copy, node.nextElementSibling);
             node.setAttribute('translate', 'no');
@@ -45,14 +47,15 @@
                 const copy = document.createElement('FONT');
                 copy.textContent = ' ' + node.textContent;
                 copy.setAttribute('translate', 'yes');
-                copy.style.opacity = 0.74;
+                // copy.style.opacity = 0.74;
+                copy.style.fontFamily = "华文细墨"
+                copy.style.fontWeight = "bold"
                 copy.classList.add("dual-1jk139");
                 node.append(copy);
                 node.setAttribute('translate', 'no');
             } else {
                 // 属于多元素的行内，则另外处理这种情况.
             }
-
         }
         // 对于标签, 以两种方式区分
         for (const node of document.querySelectorAll('li')) {
@@ -76,7 +79,9 @@
                             dupNode = child.cloneNode(true);
                         }
                         dupNode.setAttribute('translate', 'yes');
-                        dupNode.style.opacity = 0.74;
+                        // dupNode.style.opacity = 0.74;
+                        dupNode.style.fontFamily = "华文细墨"
+                        dupNode.style.fontWeight = "bold"
                         dupNode.classList.add("dual-1jk139");
                         appendNodes.push(dupNode);
                     }
@@ -89,7 +94,9 @@
                         const copy = document.createElement('FONT');
                         copy.textContent = ' ' + content;
                         copy.setAttribute('translate', 'yes');
-                        copy.style.opacity = 0.74;
+                        // copy.style.opacity = 0.74;
+                        copy.style.fontFamily = "华文细墨"
+                        copy.style.fontWeight = "bold"
                         copy.classList.add("dual-1jk139");
                         copy.appe
                         node.append(copy);
@@ -110,13 +117,14 @@
                 if (flag) {
                     const copy = document.createElement(node.nodeName);
                     copy.textContent = node.textContent;
-                    copy.style.opacity = 0.74;
+                    // copy.style.opacity = 0.74;
+                    copy.style.fontFamily = "华文细墨"
+                    copy.style.fontWeight = "bold"
                     copy.classList.add("dual-1jk139");
                     node.parentElement.insertBefore(copy, node.nextElementSibling);
                     node.setAttribute('translate', 'no');
                 }
             }
-
         }
         // 不翻译代码, 如 Netty
         for (const node of document.querySelectorAll('pre')) {
@@ -136,5 +144,4 @@
         style.innerHTML = css;
         head.appendChild(style);
     }
-
 })();
