@@ -34,8 +34,7 @@
             node.setAttribute('translate', 'no');
         }
 
-        // 开发者文档正文支持双语
-        for (const node of document.querySelectorAll('p')) {
+        function copy(node) {
             const copy = document.createElement(node.nodeName);
             copy.textContent = node.textContent;
             // copy.style.opacity = 0.74;
@@ -44,6 +43,11 @@
             copy.classList.add("dual-1jk139");
             node.parentElement.insertBefore(copy, node.nextElementSibling);
             node.setAttribute('translate', 'no');
+        }
+
+        // 正文支持双语
+        for (const node of document.querySelectorAll('p')) {
+            copy(node);
         }
 
         // 对于链接, 则使用行内元素双语, 适合目录结构
@@ -121,14 +125,7 @@
                 }
 
                 if (flag) {
-                    const copy = document.createElement(node.nodeName);
-                    copy.textContent = node.textContent;
-                    // copy.style.opacity = 0.74;
-                    copy.style.fontFamily = "华文细墨"
-                    copy.style.fontWeight = "bold"
-                    copy.classList.add("dual-1jk139");
-                    node.parentElement.insertBefore(copy, node.nextElementSibling);
-                    node.setAttribute('translate', 'no');
+                    copy(node);
                 }
             }
         }
