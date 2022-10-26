@@ -1,31 +1,11 @@
 // ==UserScript==
-// @name         技术文档双语翻译
+// @name         双语对照翻译
 // @namespace    https://github.com/Roiocam/chrome-dual-translate-script
 // @version      0.2
 // @description  让谷歌浏览器原生翻译支持双语显示.只会匹配 docs 的结果
 // @author       AndyChen
 // @include      /^(http(s)?:\/\/)(doc(s)?).*$/
-// @match        *://*/documentation/*
-// @match        *://*/*/docs/*
-// @match        *://*/docs/*
-// @match        *://*/blog/*
-// @match        *://tutorials.jenkov.com/*
-// @match        *://*/*-doc/*
-// @match        *://netflixtechblog.com/*
-// @match        *://stackoverflow.com/*
-// @match        *://news.ycombinator.com/*
-// @match        *://cr.openjdk.java.net/*
-// @match        *://dzone.com/*
-// @match        *://github.com/*
-// @match        *://livebook.manning.com/*
-// @match        *://en.algorithmica.org/*
-// @match        *://*.googleblog.com/*
-// @match        *://flink.apache.org/*
-// @match        *://bytebuddy.net/*
-// @match        *://www.1024cores.net/home/*
-// @match        *://mechanical-sympathy.blogspot.com/*
-// @match        *://mechanical-sympathy.blogspot.com/*
-// @match        *://latencytipoftheday.blogspot.com/*
+// @match        *://*/*
 // @icon         https://www.google.com/s2/favicons?domain=appinn.net
 // @grant        none
 // ==/UserScript==
