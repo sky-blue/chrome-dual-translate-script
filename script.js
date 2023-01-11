@@ -50,12 +50,17 @@
             copy(node);
         }
 
+        // 标题支持双语
+        for (const node of document.querySelectorAll('h1, h2, h3, h4, h5, h6')) {
+            copy(node);
+        }
+
         // 对于链接, 则使用行内元素双语, 适合目录结构
         for (const node of document.querySelectorAll('a')) {
             // 只更新单个超链接
             if (null === node.previousSibling && null === node.nextElementSibling) {
                 const copy = document.createElement('FONT');
-                copy.textContent = ' ' + node.textContent;
+                copy.textContent = '  ' + node.textContent;
                 copy.setAttribute('translate', 'yes');
                 // copy.style.opacity = 0.74;
                 copy.style.fontFamily = "华文细墨"
@@ -103,7 +108,7 @@
                     if (firstChild.nodeType === Node.TEXT_NODE) {
                         const content = node.textContent;
                         const copy = document.createElement('FONT');
-                        copy.textContent = ' ' + content;
+                        copy.textContent = '  ' + content;
                         copy.setAttribute('translate', 'yes');
                         // copy.style.opacity = 0.74;
                         copy.style.fontFamily = "华文细墨"
