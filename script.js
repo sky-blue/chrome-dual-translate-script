@@ -55,6 +55,25 @@
             copy(node);
         }
 
+        for (const node of document.querySelectorAll('ol')) {
+            node.setAttribute('translate', 'no');
+            for (const child of node.childNodes) {
+                let dupNode;
+                if (child.nodeType === Node.TEXT_NODE) {
+                    dupNode = document.createElement('FONT');
+                    dupNode.textContent = child.textContent;
+                } else {
+                    dupNode = child.cloneNode(true);
+                }
+                dupNode.setAttribute('translate', 'yes');
+                // dupNode.style.opacity = 0.74;
+                dupNode.style.fontFamily = "华文细墨"
+                dupNode.style.fontWeight = "bold"
+                dupNode.classList.add("dual-1jk139");
+                node.append(dupNode);
+            }
+        }
+
         // 对于链接, 则使用行内元素双语, 适合目录结构
         for (const node of document.querySelectorAll('a')) {
             // 只更新单个超链接
